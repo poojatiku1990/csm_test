@@ -1,0 +1,6 @@
+{
+  "scope": "x_20261805_csm",
+  "scopeId": "618c4e0ebf564c8a81c3a6a464b33504",
+  "name": "csm_test",
+  "tsconfigPath": "./src/server/tsconfig.json"
+}
