@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<business_rule>
+  <name>x_20261805_csm_auto_assign_case</name>
+  <table>x_20261805_csm_customer_case</table>
+  <when>before</when>
+  <operation>insert,update</operation>
+  <filter_condition>
+    <![CDATA[
+      assigned_to is empty
+    ]]>
+  </filter_condition>
+  <active>true</active>
+  <order>100</order>
+  <description>Auto-assign case to current user if assigned_to is empty</description>
+  <scope>x_20261805_csm</scope>
+  
+  <script>
+    <![CDATA[
+(function executeRule(current, previous) {
+  // Auto-assign the case to the current user if assigned_to is empty
+  if (!current.assigned_to || current.assigned_to.toString() === '') {
+    current.assigned_to = gs.getUserID();
+    gs.info('Case ' + current.case_number + ' automatically assigned to ' + gs.getUserName());
+  }
+})(current, previous);
+    ]]>
+  </script>
+</business_rule>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow>
+  <name>x_20261805_csm_route_high_priority</name>
+  <table>x_20261805_csm_customer_case</table>
+  <trigger>on_insert_update</trigger>
+  <active>true</active>
+  <order>100</order>
+  <description>Route cases to high-priority support queue if priority >= 4</description>
+  <scope>x_20261805_csm</scope>
+  
+  <condition>
+    <![CDATA[
+      priority >= 4
+    ]]>
+  </condition>
+  
+  <actions>
+    <action type="set_field">
+      <field>state</field>
+      <value>in_progress</value>
+    </action>
+    
+    <action type="add_to_queue">
+      <queue>high_priority_support_queue</queue>
+      <description>High Priority Case Routing</description>
+    </action>
+    
+    <action type="send_notification">
+      <recipient>high_priority_support_group</recipient>
+      <template>x_20261805_csm_high_priority_case_notification</template>
+      <message>A high priority case has been assigned and requires immediate attention</message>
+    </action>
+    
+    <action type="log_activity">
+      <activity_type>case_routed</activity_type>
+      <details>Case routed to high-priority support queue due to priority level >= 4</details>
+    </action>
+  </actions>
+</flow>

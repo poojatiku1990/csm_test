@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<client_script>
+  <name>x_20261805_csm_validate_priority</name>
+  <table>x_20261805_csm_customer_case</table>
+  <type>onChange</type>
+  <field_name>priority</field_name>
+  <active>true</active>
+  <order>100</order>
+  <description>Validate that priority is between 1 and 5</description>
+  <scope>x_20261805_csm</scope>
+  
+  <script>
+    <![CDATA[
+function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+  if (isLoading || isTemplate) {
+    return;
+  }
+  
+  var priority = parseInt(newValue);
+  
+  // Validate priority is between 1 and 5
+  if (isNaN(priority) || priority < 1 || priority > 5) {
+    g_form.setMandatory('priority', true);
+    g_form.showErrorBox('priority', 'Priority must be between 1 and 5');
+    g_form.clearValue('priority');
+    return false;
+  }
+  
+  // Clear error if valid
+  g_form.clearErrorBox('priority');
+  g_form.setMandatory('priority', true);
+}
+    ]]>
+  </script>
+</client_script>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table_definition>
+  <name>x_20261805_csm_customer_case</name>
+  <label>Customer Case</label>
+  <extends>task</extends>
+  <description>Customer Service Management table for tracking and managing customer support cases</description>
+  <scope>x_20261805_csm</scope>
+  
+  <field>
+    <name>case_number</name>
+    <type>string</type>
+    <label>Case Number</label>
+    <length>40</length>
+    <max_length>40</max_length>
+    <mandatory>true</mandatory>
+    <unique>true</unique>
+    <read_only>false</read_only>
+    <display>true</display>
+  </field>
+  
+  <field>
+    <name>short_description</name>
+    <type>string</type>
+    <label>Short Description</label>
+    <length>255</length>
+    <max_length>255</max_length>
+    <mandatory>true</mandatory>
+    <read_only>false</read_only>
+    <display>true</display>
+  </field>
+  
+  <field>
+    <name>priority</name>
+    <type>integer</type>
+    <label>Priority</label>
+    <mandatory>true</mandatory>
+    <default_value>3</default_value>
+    <read_only>false</read_only>
+    <display>true</display>
+    <validation>
+      <script>gs.getProperty('x_20261805_csm.priority_validation')</script>
+    </validation>
+  </field>
+  
+  <field>
+    <name>state</name>
+    <type>string</type>
+    <label>State</label>
+    <length>40</length>
+    <max_length>40</max_length>
+    <mandatory>true</mandatory>
+    <default_value>open</default_value>
+    <read_only>false</read_only>
+    <display>true</display>
+    <choices>
+      <choice value="open">Open</choice>
+      <choice value="in_progress">In Progress</choice>
+      <choice value="waiting_on_customer">Waiting on Customer</choice>
+      <choice value="resolved">Resolved</choice>
+      <choice value="closed">Closed</choice>
+    </choices>
+  </field>
+  
+  <field>
+    <name>assigned_to</name>
+    <type>reference</type>
+    <label>Assigned To</label>
+    <reference_table>sys_user</reference_table>
+    <mandatory>false</mandatory>
+    <read_only>false</read_only>
+    <display>true</display>
+  </field>
+  
+  <field>
+    <name>sla_deadline</name>
+    <type>glide_date_time</type>
+    <label>SLA Deadline</label>
+    <mandatory>false</mandatory>
+    <read_only>true</read_only>
+    <display>true</display>
+  </field>
+  
+  <field>
+    <name>created_date</name>
+    <type>glide_date_time</type>
+    <label>Created</label>
+    <mandatory>false</mandatory>
+    <read_only>true</read_only>
+    <display>true</display>
+  </field>
+
+</table_definition>

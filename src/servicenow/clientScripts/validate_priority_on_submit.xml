@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<client_script_on_submit>
+  <name>x_20261805_csm_validate_priority_on_submit</name>
+  <table>x_20261805_csm_customer_case</table>
+  <type>onSubmit</type>
+  <active>true</active>
+  <order>100</order>
+  <description>Validate priority before saving - must be between 1 and 5</description>
+  <scope>x_20261805_csm</scope>
+  
+  <script>
+    <![CDATA[
+function onSubmit() {
+  var priority = g_form.getValue('priority');
+  var priorityNum = parseInt(priority);
+  
+  // Validate priority is between 1 and 5
+  if (isNaN(priorityNum) || priorityNum < 1 || priorityNum > 5) {
+    g_form.addErrorMessage('Priority must be a number between 1 and 5');
+    return false;
+  }
+  
+  return true;
+}
+    ]]>
+  </script>
+</client_script_on_submit>

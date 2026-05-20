@@ -1,0 +1,37 @@
+{
+  "name": "csm_test",
+  "scope": "x_20261805_csm",
+  "version": "0.0.1",
+  "description": "Customer Service Management application for managing customer cases with auto-assignment, priority validation, and SLA tracking",
+  "author": "CSM Team",
+  "license": "UNLICENSED",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "csm",
+    "customer-service",
+    "case-management",
+    "sla",
+    "priority"
+  ],
+  "components": {
+    "tables": [
+      "x_20261805_csm_customer_case"
+    ],
+    "businessRules": [
+      "x_20261805_csm_auto_assign_case"
+    ],
+    "clientScripts": [
+      "x_20261805_csm_validate_priority"
+    ],
+    "flows": [
+      "x_20261805_csm_route_high_priority"
+    ],
+    "scriptIncludes": [
+      "x_20261805_csm_sla_calculator"
+    ]
+  }
+}
