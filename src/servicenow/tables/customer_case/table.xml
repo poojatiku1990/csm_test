@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table name="x_20261805_customer_case" extends="task">
+  <label>Customer Case</label>
+  <label_plural>Customer Cases</label_plural>
+  <description>Customer Service Management table for tracking and managing customer support cases</description>
+  <class_name>CustomerCase</class_name>
+  <is_extendable>false</is_extendable>
+  <accessibility>public</accessibility>
+  <scope>x_20261805_csm</scope>
+  <super_class></super_class>
+  <sys_package display_value="csm_test">x_20261805_csm_test</sys_package>
+  
+  <!-- Primary Fields -->
+  <sys_db_object>
+    <name>x_20261805_customer_case</name>
+    <schema_version>1</schema_version>
+    <default_sort_order>number</default_sort_order>
+    
+    <!-- Field: number -->
+    <sys_dictionary element="number">
+      <name>number</name>
+      <element>number</element>
+      <internal_type>string</internal_type>
+      <column_label>Number</column_label>
+      <column_length>40</column_length>
+      <max_length>40</max_length>
+      <unique>true</unique>
+      <mandatory>true</mandatory>
+      <read_only>false</read_only>
+      <display>true</display>
+      <active>true</active>
+      <auto_increment>true</auto_increment>
+      <attributes>
+        <attribute name="glide.db.table.requires_acl">true</attribute>
+      </attributes>
+    </sys_dictionary>
+    
+    <!-- Field: short_description -->
+    <sys_dictionary element="short_description">
+      <name>short_description</name>
+      <element>short_description</element>
+      <internal_type>string</internal_type>
+      <column_label>Short Description</column_label>
+      <column_length>255</column_length>
+      <max_length>255</max_length>
+      <mandatory>true</mandatory>
+      <read_only>false</read_only>
+      <display>true</display>
+      <active>true</active>
+    </sys_dictionary>
+    
+    <!-- Field: description -->
+    <sys_dictionary element="description">
+      <name>description</name>
+      <element>description</element>
+      <internal_type>text</internal_type>
+      <column_label>Description</column_label>
+      <column_length>8000</column_length>
+      <max_length>8000</max_length>
+      <mandatory>false</mandatory>
+      <read_only>false</read_only>
+      <display>true</display>
+      <active>true</active>
+    </sys_dictionary>
+    
+    <!-- Field: priority -->
+    <sys_dictionary element="priority">
+      <name>priority</name>
+      <element>priority</element>
+      <internal_type>choice</internal_type>
+      <column_label>Priority</column_label>
+      <default_value>2</default_value>
+      <mandatory>true</mandatory>
+      <read_only>false</read_only>
+      <display>true</display>
+      <active>true</active>
+      <choice_table></choice_table>
+      <choice_field></choice_field>
+      <choice_options>
+        <choice value="1">Critical</choice>
+        <choice value="2">High</choice>
+        <choice value="3">Medium</choice>
+        <choice value="4">Low</choice>
+      </choice_options>
+    </sys_dictionary>
+    
+    <!-- Field: state -->
+    <sys_dictionary element="state">
+      <name>state</name>
+      <element>state</element>
+      <internal_type>choice</internal_type>
+      <column_label>State</column_label>
+      <default_value>new</default_value>
+      <mandatory>true</mandatory>
+      <read_only>false</read_only>
+      <display>true</display>
+      <active>true</active>
+      <choice_table></choice_table>
+      <choice_field></choice_field>
+      <choice_options>
+        <choice value="new">New</choice>
+        <choice value="in_progress">In Progress</choice>
+        <choice value="resolved">Resolved</choice>
+        <choice value="closed">Closed</choice>
+      </choice_options>
+    </sys_dictionary>
+    
+    <!-- Field: assigned_to -->
+    <sys_dictionary element="assigned_to">
+      <name>assigned_to</name>
+      <element>assigned_to</element>
+      <internal_type>reference</internal_type>
+      <reference_table>sys_user</reference_table>
+      <column_label>Assigned To</column_label>
+      <mandatory>false</mandatory>
+      <read_only>false</read_only>
+      <display>true</display>
+      <active>true</active>
+    </sys_dictionary>
+    
+    <!-- Field: resolution_notes -->
+    <sys_dictionary element="resolution_notes">
+      <name>resolution_notes</name>
+      <element>resolution_notes</element>
+      <internal_type>text</internal_type>
+      <column_label>Resolution Notes</column_label>
+      <column_length>4000</column_length>
+      <max_length>4000</max_length>
+      <mandatory>false</mandatory>
+      <read_only>false</read_only>
+      <display>true</display>
+      <active>true</active>
+    </sys_dictionary>
+    
+  </sys_db_object>
+  
+</table>

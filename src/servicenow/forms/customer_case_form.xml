@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="x_20261805_customer_case" extends="task">
+  <label>Customer Case</label>
+  <description>Customer Service Management Case Form</description>
+  
+  <!-- Form Layout Configuration -->
+  <layout type="form">
+    <section name="Header">
+      <label>Case Information</label>
+      <field name="number">
+        <label>Number</label>
+        <type>string</type>
+        <mandatory>true</mandatory>
+        <read_only>true</read_only>
+        <width>50</width>
+        <position>1</position>
+      </field>
+      
+      <field name="short_description">
+        <label>Short Description</label>
+        <type>string</type>
+        <mandatory>true</mandatory>
+        <read_only>false</read_only>
+        <width>50</width>
+        <position>2</position>
+      </field>
+    </section>
+    
+    <section name="Status">
+      <label>Status and Priority</label>
+      <field name="state">
+        <label>State</label>
+        <type>choice</type>
+        <mandatory>true</mandatory>
+        <read_only>false</read_only>
+        <width>50</width>
+        <position>1</position>
+      </field>
+      
+      <field name="priority">
+        <label>Priority</label>
+        <type>choice</type>
+        <mandatory>true</mandatory>
+        <read_only>false</read_only>
+        <width>50</width>
+        <position>2</position>
+      </field>
+    </section>
+    
+    <section name="Assignment">
+      <label>Assignment</label>
+      <field name="assigned_to">
+        <label>Assigned To</label>
+        <type>reference</type>
+        <reference>sys_user</reference>
+        <mandatory>false</mandatory>
+        <read_only>false</read_only>
+        <width>100</width>
+        <position>1</position>
+      </field>
+    </section>
+    
+    <section name="Details">
+      <label>Details</label>
+      <field name="description">
+        <label>Description</label>
+        <type>text</type>
+        <mandatory>false</mandatory>
+        <read_only>false</read_only>
+        <width>100</width>
+        <position>1</position>
+        <rows>5</rows>
+      </field>
+      
+      <field name="resolution_notes">
+        <label>Resolution Notes</label>
+        <type>text</type>
+        <mandatory>false</mandatory>
+        <read_only>false</read_only>
+        <width>100</width>
+        <position>2</position>
+        <rows>4</rows>
+      </field>
+    </section>
+  </layout>
+  
+  <!-- Tab Groups (Optional for UI/Next) -->
+  <tabs>
+    <tab name="tab_case_info" label="Case Information" default="true">
+      <section reference="Header" />
+      <section reference="Status" />
+    </tab>
+    <tab name="tab_assignment" label="Assignment">
+      <section reference="Assignment" />
+    </tab>
+    <tab name="tab_details" label="Details">
+      <section reference="Details" />
+    </tab>
+  </tabs>
+  
+  <!-- Form Styles -->
+  <styles>
+    <style name="section-header" value="background-color: #f0f0f0; padding: 8px;" />
+    <style name="mandatory-field" value="border-left: 3px solid #ff0000;" />
+  </styles>
+  
+</form>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+  <!-- Customer Case Table Dictionary -->
+  
+  <!-- Table Entry -->
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <name>x_20261805_customer_case</name>
+    <element></element>
+    <sys_name>Customer Case</sys_name>
+    <sys_package display_value="csm_test">x_20261805_csm_test</sys_package>
+    <type>table</type>
+    <column_label>Customer Case</column_label>
+    <internal_type>table</internal_type>
+    <attributes>
+      <attribute name="access">public</attribute>
+      <attribute name="extends">task</attribute>
+    </attributes>
+  </sys_dictionary>
+  
+  <!-- Field: number -->
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <name>x_20261805_customer_case</name>
+    <element>number</element>
+    <sys_name>Number</sys_name>
+    <sys_package display_value="csm_test">x_20261805_csm_test</sys_package>
+    <type>String</type>
+    <column_label>Number</column_label>
+    <column_length>40</column_length>
+    <max_length>40</max_length>
+    <internal_type>string</internal_type>
+    <active>true</active>
+    <mandatory>true</mandatory>
+    <read_only>false</read_only>
+    <unique>true</unique>
+    <attributes>
+      <attribute name="glide.db.table.requires_acl">true</attribute>
+      <attribute name="auto_increment">true</attribute>
+    </attributes>
+    <comments>Unique case identifier - auto-incremented</comments>
+  </sys_dictionary>
+  
+  <!-- Field: short_description -->
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <name>x_20261805_customer_case</name>
+    <element>short_description</element>
+    <sys_name>Short Description</sys_name>
+    <sys_package display_value="csm_test">x_20261805_csm_test</sys_package>
+    <type>String</type>
+    <column_label>Short Description</column_label>
+    <column_length>255</column_length>
+    <max_length>255</max_length>
+    <internal_type>string</internal_type>
+    <active>true</active>
+    <mandatory>true</mandatory>
+    <read_only>false</read_only>
+    <comments>Brief summary of the customer case</comments>
+  </sys_dictionary>
+  
+  <!-- Field: description -->
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <name>x_20261805_customer_case</name>
+    <element>description</element>
+    <sys_name>Description</sys_name>
+    <sys_package display_value="csm_test">x_20261805_csm_test</sys_package>
+    <type>Text</type>
+    <column_label>Description</column_label>
+    <column_length>8000</column_length>
+    <max_length>8000</max_length>
+    <internal_type>text</internal_type>
+    <active>true</active>
+    <mandatory>false</mandatory>
+    <read_only>false</read_only>
+    <comments>Detailed description of the case</comments>
+  </sys_dictionary>
+  
+  <!-- Field: priority -->
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <name>x_20261805_customer_case</name>
+    <element>priority</element>
+    <sys_name>Priority</sys_name>
+    <sys_package display_value="csm_test">x_20261805_csm_test</sys_package>
+    <type>Choice</type>
+    <column_label>Priority</column_label>
+    <internal_type>choice</internal_type>
+    <active>true</active>
+    <mandatory>true</mandatory>
+    <read_only>false</read_only>
+    <default_value>2</default_value>
+    <attributes>
+      <attribute name="choices">
+        <option key="1" value="Critical" />
+        <option key="2" value="High" />
+        <option key="3" value="Medium" />
+        <option key="4" value="Low" />
+      </attribute>
+    </attributes>
+    <comments>Priority level for case resolution - Default: High (2)</comments>
+  </sys_dictionary>
+  
+  <!-- Field: state -->
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <name>x_20261805_customer_case</name>
+    <element>state</element>
+    <sys_name>State</sys_name>
+    <sys_package display_value="csm_test">x_20261805_csm_test</sys_package>
+    <type>Choice</type>
+    <column_label>State</column_label>
+    <internal_type>choice</internal_type>
+    <active>true</active>
+    <mandatory>true</mandatory>
+    <read_only>false</read_only>
+    <default_value>new</default_value>
+    <attributes>
+      <attribute name="choices">
+        <option key="new" value="New" />
+        <option key="in_progress" value="In Progress" />
+        <option key="resolved" value="Resolved" />
+        <option key="closed" value="Closed" />
+      </attribute>
+    </attributes>
+    <comments>Current state of the case - Default: New</comments>
+  </sys_dictionary>
+  
+  <!-- Field: assigned_to -->
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <name>x_20261805_customer_case</name>
+    <element>assigned_to</element>
+    <sys_name>Assigned To</sys_name>
+    <sys_package display_value="csm_test">x_20261805_csm_test</sys_package>
+    <type>Reference</type>
+    <column_label>Assigned To</column_label>
+    <internal_type>reference</internal_type>
+    <reference_table>sys_user</reference_table>
+    <active>true</active>
+    <mandatory>false</mandatory>
+    <read_only>false</read_only>
+    <comments>ServiceNow user assigned to handle the case</comments>
+  </sys_dictionary>
+  
+  <!-- Field: resolution_notes -->
+  <sys_dictionary action="INSERT_OR_UPDATE">
+    <name>x_20261805_customer_case</name>
+    <element>resolution_notes</element>
+    <sys_name>Resolution Notes</sys_name>
+    <sys_package display_value="csm_test">x_20261805_csm_test</sys_package>
+    <type>Text</type>
+    <column_label>Resolution Notes</column_label>
+    <column_length>4000</column_length>
+    <max_length>4000</max_length>
+    <internal_type>text</internal_type>
+    <active>true</active>
+    <mandatory>false</mandatory>
+    <read_only>false</read_only>
+    <comments>Notes on case resolution or workaround</comments>
+  </sys_dictionary>
+  
+</database>

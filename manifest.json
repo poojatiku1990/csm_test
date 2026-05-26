@@ -2,7 +2,7 @@
   "name": "csm_test",
   "scope": "x_20261805_csm",
   "version": "0.0.1",
-  "description": "Customer Service Management application for managing customer cases with auto-assignment, priority validation, and SLA tracking",
+  "description": "Customer Service Management application for managing customer support cases",
   "author": "CSM Team",
   "license": "UNLICENSED",
   "homepage": "",
@@ -13,25 +13,22 @@
   "keywords": [
     "csm",
     "customer-service",
-    "case-management",
-    "sla",
-    "priority"
+    "case-management"
   ],
   "components": {
     "tables": [
-      "x_20261805_csm_customer_case"
+      {
+        "name": "x_20261805_customer_case",
+        "label": "Customer Case",
+        "extends": "task",
+        "description": "Customer Service Management table for tracking and managing customer support cases"
+      }
     ],
-    "businessRules": [
-      "x_20261805_csm_auto_assign_case"
+    "dictionaries": [
+      "customer_case_dictionary"
     ],
-    "clientScripts": [
-      "x_20261805_csm_validate_priority"
-    ],
-    "flows": [
-      "x_20261805_csm_route_high_priority"
-    ],
-    "scriptIncludes": [
-      "x_20261805_csm_sla_calculator"
+    "forms": [
+      "customer_case_form"
     ]
   }
 }
